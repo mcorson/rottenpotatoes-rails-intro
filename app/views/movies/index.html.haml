@@ -4,9 +4,9 @@
 %table#movies
   %thead
     %tr
-      - if session[:sort] == "title"
+      if session[:sort] == "title"
         %th.hilite= link_to "Movie Title", movies_path(:sort => :title), id: "title_header"
-      - else
+      else
         %th= link_to "Movie Title", movies_path(:sort => :title), id: "title_header"
       %th Rating
       %th Release Date
