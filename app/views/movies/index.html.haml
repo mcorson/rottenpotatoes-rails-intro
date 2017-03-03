@@ -4,13 +4,13 @@
 %table#movies
   %thead
     %tr
-      - if session[:sort] == "title"
-        %th.hilite= link_to "Movie Title", movies_path(:sort => :title), id: "title_header"
+      - if params[:sort] == "title"
+        %th.hilite= link_to "Movie title", movies_path(:sort => :title), id: "title_header"
       - else
         %th= link_to "Movie Title", movies_path(:sort => :title), id: "title_header"
-        %th Rating
-        %th Release Date
-        %th More info
+      %th Rating
+      %th Release Date
+      %th More Info
   %tbody
     - @movies.each do |movie|
       %tr
