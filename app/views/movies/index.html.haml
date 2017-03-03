@@ -8,7 +8,9 @@
         %th.hilite= link_to "Movie Title", movies_path(:sort => :title), id: "title_header"
       - else
         %th= link_to "Movie Title", movies_path(:sort => :title), id: "title_header"
-      
+      %th Rating
+      %th Release Date
+      %th More info
   %tbody
     - @movies.each do |movie|
       %tr
