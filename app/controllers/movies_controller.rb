@@ -11,6 +11,21 @@ class MoviesController < ApplicationController
   end
 
   def index
+
+    @all_ratings = ['G', 'PG', 'PG-13', 'R', 'NC-17']
+    
+    if params[:ratings]
+      session[:ratings] = params[:ratings]
+      @selected_ratings = session[:ratings].keys
+    elsif
+      session[:ratings]
+      @selected_ratings = session[:ratings].keys
+    else
+      @selected_ratings = @all_ratings
+    end
+
+  
+
     if params[:sort]
       session[:sort] = params[:sort]
       @movies = Movie.all.order(session[:sort])
