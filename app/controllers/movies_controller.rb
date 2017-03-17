@@ -25,14 +25,14 @@ def index
     
     if params[:ratings]
       session[:ratings] = params[:ratings]
-      @selected_retings = session[:ratings].keys
+      @selected_ratings = session[:ratings].keys
     elsif session[:ratings]
-      @selected_retings = session[:ratings].keys
+      @selected_ratings = session[:ratings].keys
     else
-      @selected_retings = @all_ratings
+      @selected_ratings = @all_ratings
     end
     
-    @movies =  @movies.where(:rating => @selected_retings)
+    @movies =  @movies.where(:rating => @selected_ratings)
     
 end
 
