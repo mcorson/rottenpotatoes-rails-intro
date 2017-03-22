@@ -21,7 +21,7 @@ def index
       @movies = Movie.all
     end
     
-    
+    @all_ratings = Movie.ratings
     
     if params[:ratings]
       session[:ratings] = params[:ratings]
