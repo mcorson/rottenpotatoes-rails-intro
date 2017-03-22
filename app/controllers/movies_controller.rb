@@ -12,6 +12,9 @@ class MoviesController < ApplicationController
 
 def index
     
+    if session[:movies_sort_column].present? && params[:sort].nil?
+      redirect_to movies_path(sort: session[:movies_sort_column]) and return
+    end
     if params[:sort]
       session[:sort] = params[:sort]
       @movies = Movie.all.order(session[:sort])
